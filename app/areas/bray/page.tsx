@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 const area = getArea("bray");
 
 export const metadata: Metadata = area ? {
-  title: `Marketing Agency & Web Design Bray | Marketing Agency Dublin`,
+  title: `Marketing Agency Bray`,
   description: `Professional marketing agency serving Bray, Co. ${area.county}. SEO, web design, Google Ads & social media marketing. Free consultation. Call +353 83 122 7553.`,
   alternates: { canonical: `https://marketing-agency-dublin-dublin.vercel.app/areas/bray` },
   openGraph: {
-    title: `Marketing Agency & Web Design Bray | Marketing Agency Dublin`,
+    title: `Marketing Agency Bray`,
     description: `Professional marketing agency serving Bray. SEO, web design, Google Ads & social media marketing.`,
     url: `https://marketing-agency-dublin-dublin.vercel.app/areas/bray`,
     siteName: "Marketing Agency Dublin",

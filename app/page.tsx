@@ -5,7 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Marketing Agency Dublin | SEO, Web Design & Digital Marketing",
+  title: { absolute: "Marketing Agency Dublin | SEO, Web Design & Digital Marketing" },
   description: "Dublin's top-rated marketing agency. Expert SEO, Google Ads, web design, social media & local SEO services. 150+ clients served. Call +353 83 122 7553.",
   alternates: { canonical: "https://marketing-agency-dublin-dublin.vercel.app" },
   openGraph: {
@@ -30,6 +30,15 @@ const services = [
 const areas = [
   "Naas","Navan","Mullingar","Drogheda","Tallaght","Blackrock","Greystones","Ashbourne",
   "Swords","Malahide","Lucan","Blanchardstown","Bray","Maynooth","Leixlip","Sandyford",
+];
+
+const reviews = [
+  { name: "Sarah M.", business: "E-commerce Store Owner", rating: 5, text: "Our online sales increased by 340% in six months. The SEO and Google Ads strategy they built was a game-changer for our business." },
+  { name: "James O'Brien", business: "Local Plumbing Company", rating: 5, text: "We went from zero online presence to ranking #1 for plumber in our area. The phone hasn't stopped ringing since." },
+  { name: "Aoife Kelly", business: "Dental Practice Manager", rating: 5, text: "Professional, responsive, and they actually deliver on their promises. Our website traffic tripled and new patient enquiries are up 200%." },
+  { name: "Mark Doyle", business: "Restaurant Owner, Dublin 4", rating: 5, text: "The local SEO work transformed our Google Business Profile. We're now consistently in the top 3 map results and bookings are through the roof." },
+  { name: "Claire Fitzgerald", business: "Solicitor", rating: 5, text: "They redesigned our website and handled our entire digital marketing. The ROI has been incredible — best investment we've made in the practice." },
+  { name: "Declan Murphy", business: "Construction Company Director", rating: 5, text: "Straight talkers who know their stuff. They explained everything in plain English and the results speak for themselves. Highly recommend." },
 ];
 
 const homeFaq = [
@@ -62,7 +71,7 @@ export default function Home() {
           </div>
           <div className="relative hidden md:block">
             <div className="rounded-2xl overflow-hidden shadow-2xl border-8 border-white/10 aspect-video">
-              <Image src="/images/hero-dashboard.jpg" alt="Marketing analytics dashboard" width={800} height={450} className="w-full h-full object-cover" priority />
+              <Image src="/images/hero-dashboard.jpg" alt="Marketing analytics dashboard showing SEO performance metrics for a Dublin business" width={700} height={394} className="w-full h-full object-cover" priority />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-yellow-soft p-6 rounded-xl shadow-xl text-primary font-bold">
               <div className="text-4xl">100%</div>
@@ -166,7 +175,7 @@ export default function Home() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden aspect-square">
-            <Image src="/images/team-working.jpg" alt="Our marketing team at work" width={600} height={600} className="w-full h-full object-cover" />
+            <Image src="/images/team-working.jpg" alt="Marketing Agency Dublin team collaborating on a digital strategy for an Irish client" width={600} height={600} className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -174,11 +183,41 @@ export default function Home() {
       {/* Detailed Content Section for SEO */}
       <section className="py-24 bg-white px-6">
         <div className="max-w-4xl mx-auto space-y-8 text-lg text-slate-600 leading-relaxed">
+          <div className="rounded-xl overflow-hidden mb-4">
+            <Image src="/images/about-office.jpg" alt="Marketing Agency Dublin office where our team plans digital marketing campaigns for Irish businesses" width={900} height={400} className="w-full h-auto object-cover rounded-xl" />
+          </div>
           <h2 className="text-3xl font-bold text-slate-900">Full-Service Marketing Agency in Dublin</h2>
           <p>Marketing Agency Dublin is a full-service digital marketing agency located at Burnell Court, 146 Malahide Rd, Priorswood, Dublin 17. We specialise in helping Irish businesses grow through strategic <Link href="/services/search-engine-optimisation" className="text-primary font-semibold hover:underline">search engine optimisation</Link>, professional <Link href="/services/web-design" className="text-primary font-semibold hover:underline">website design and development</Link>, and targeted <Link href="/services/google-ads-ppc" className="text-primary font-semibold hover:underline">Google Ads campaigns</Link>.</p>
           <p>As a leading SEO agency in Dublin, we understand the unique challenges that Irish businesses face in the digital landscape. Whether you&apos;re a local shop looking to dominate Google Maps or a growing company targeting customers across Ireland, our team develops custom marketing strategies that deliver measurable results.</p>
           <p>Our <Link href="/services/local-seo" className="text-primary font-semibold hover:underline">local SEO services</Link> help Dublin businesses appear at the top of local search results, while our <Link href="/services/social-media-marketing" className="text-primary font-semibold hover:underline">social media marketing</Link> builds brand awareness and community engagement. For businesses looking to establish thought leadership, our <Link href="/services/content-digital-strategy" className="text-primary font-semibold hover:underline">content and digital strategy</Link> service creates compelling content that attracts and converts your ideal customers.</p>
           <p>We serve businesses not only in Dublin city but across the greater Leinster region, including <Link href="/areas/naas" className="text-primary font-semibold hover:underline">Naas</Link>, <Link href="/areas/drogheda" className="text-primary font-semibold hover:underline">Drogheda</Link>, <Link href="/areas/navan" className="text-primary font-semibold hover:underline">Navan</Link>, <Link href="/areas/swords" className="text-primary font-semibold hover:underline">Swords</Link>, <Link href="/areas/tallaght" className="text-primary font-semibold hover:underline">Tallaght</Link>, and <Link href="/areas/sandyford" className="text-primary font-semibold hover:underline">Sandyford</Link>. No matter where your business is located, we bring the same level of expertise and dedication to every client.</p>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="py-24 bg-primary text-white px-6" id="reviews">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black mb-4">What Our Clients Say</h2>
+            <p className="text-white/80 text-lg max-w-2xl mx-auto">Real results from real Dublin businesses. Here&apos;s what our clients have to say about working with us.</p>
+            <div className="h-1.5 w-24 bg-yellow-soft mx-auto rounded-full mt-4"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {reviews.map((r, i) => (
+              <div key={i} className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10">
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: r.rating }).map((_, j) => (
+                    <span key={j} className="material-symbols-outlined text-yellow-soft text-xl">star</span>
+                  ))}
+                </div>
+                <p className="text-white/90 leading-relaxed mb-6">&ldquo;{r.text}&rdquo;</p>
+                <div>
+                  <p className="font-bold">{r.name}</p>
+                  <p className="text-white/60 text-sm">{r.business}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

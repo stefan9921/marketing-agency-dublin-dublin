@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Marketing Agency Dublin",
+  title: "Privacy Policy",
   description: "Privacy Policy for Marketing Agency Dublin. Learn how we collect, use, and protect your personal information.",
   alternates: { canonical: "https://marketing-agency-dublin-dublin.vercel.app/privacy-policy" },
 };

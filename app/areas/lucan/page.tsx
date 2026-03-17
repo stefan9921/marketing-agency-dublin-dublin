@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 const area = getArea("lucan");
 
 export const metadata: Metadata = area ? {
-  title: `Marketing Agency & Web Design Lucan | Marketing Agency Dublin`,
+  title: `Marketing Agency Lucan`,
   description: `Professional marketing agency serving Lucan, Co. ${area.county}. SEO, web design, Google Ads & social media marketing. Free consultation. Call +353 83 122 7553.`,
   alternates: { canonical: `https://marketing-agency-dublin-dublin.vercel.app/areas/lucan` },
   openGraph: {
-    title: `Marketing Agency & Web Design Lucan | Marketing Agency Dublin`,
+    title: `Marketing Agency Lucan`,
     description: `Professional marketing agency serving Lucan. SEO, web design, Google Ads & social media marketing.`,
     url: `https://marketing-agency-dublin-dublin.vercel.app/areas/lucan`,
     siteName: "Marketing Agency Dublin",

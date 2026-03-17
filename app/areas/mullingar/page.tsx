@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 const area = getArea("mullingar");
 
 export const metadata: Metadata = area ? {
-  title: `Marketing Agency & Web Design Mullingar | Marketing Agency Dublin`,
+  title: `Marketing Agency Mullingar`,
   description: `Professional marketing agency serving Mullingar, Co. ${area.county}. SEO, web design, Google Ads & social media marketing. Free consultation. Call +353 83 122 7553.`,
   alternates: { canonical: `https://marketing-agency-dublin-dublin.vercel.app/areas/mullingar` },
   openGraph: {
-    title: `Marketing Agency & Web Design Mullingar | Marketing Agency Dublin`,
+    title: `Marketing Agency Mullingar`,
     description: `Professional marketing agency serving Mullingar. SEO, web design, Google Ads & social media marketing.`,
     url: `https://marketing-agency-dublin-dublin.vercel.app/areas/mullingar`,
     siteName: "Marketing Agency Dublin",

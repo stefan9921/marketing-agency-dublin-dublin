@@ -7,11 +7,11 @@ import CTA from "@/components/CTA";
 const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
 
 export const metadata: Metadata = {
-  title: "About Marketing Agency Dublin | Our Story & Team",
+  title: "About Us | Our Story & Team",
   description: "Learn about Marketing Agency Dublin — a results-driven digital marketing agency based in Dublin 17. Meet our team and discover our approach to growing Irish businesses.",
   alternates: { canonical: `${BASE}/about` },
   openGraph: {
-    title: "About Marketing Agency Dublin | Our Story & Team",
+    title: "About Us | Our Story & Team",
     description: "Learn about Marketing Agency Dublin — a results-driven digital marketing agency based in Dublin 17.",
     url: `${BASE}/about`,
     siteName: "Marketing Agency Dublin",

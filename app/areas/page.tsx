@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Areas We Serve | Marketing Agency Dublin",
+  title: "Areas We Serve",
   description: "We provide digital marketing services across Dublin, Kildare, Meath, Wicklow, Westmeath and Louth. Find your local marketing experts.",
   alternates: { canonical: "https://marketing-agency-dublin-dublin.vercel.app/areas" },
 };

@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 const area = getArea("ashbourne");
 
 export const metadata: Metadata = area ? {
-  title: `Marketing Agency & Web Design Ashbourne | Marketing Agency Dublin`,
+  title: `Marketing Agency Ashbourne`,
   description: `Professional marketing agency serving Ashbourne, Co. ${area.county}. SEO, web design, Google Ads & social media marketing. Free consultation. Call +353 83 122 7553.`,
   alternates: { canonical: `https://marketing-agency-dublin-dublin.vercel.app/areas/ashbourne` },
   openGraph: {
-    title: `Marketing Agency & Web Design Ashbourne | Marketing Agency Dublin`,
+    title: `Marketing Agency Ashbourne`,
     description: `Professional marketing agency serving Ashbourne. SEO, web design, Google Ads & social media marketing.`,
     url: `https://marketing-agency-dublin-dublin.vercel.app/areas/ashbourne`,
     siteName: "Marketing Agency Dublin",

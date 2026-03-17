@@ -6,11 +6,11 @@ import ContactForm from "@/components/ContactForm";
 const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Contact Marketing Agency Dublin | Get a Free Quote",
+  title: "Contact Us | Get a Free Quote",
   description: "Contact Marketing Agency Dublin for a free, no-obligation consultation. Call +353 83 122 7553 or fill in our form. Based at Burnell Court, 146 Malahide Rd, Dublin 17.",
   alternates: { canonical: `${BASE}/contact` },
   openGraph: {
-    title: "Contact Marketing Agency Dublin | Get a Free Quote",
+    title: "Contact Us | Get a Free Quote",
     description: "Contact Marketing Agency Dublin for a free consultation. Call +353 83 122 7553.",
     url: `${BASE}/contact`,
     siteName: "Marketing Agency Dublin",

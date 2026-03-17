@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 const area = getArea("maynooth");
 
 export const metadata: Metadata = area ? {
-  title: `Marketing Agency & Web Design Maynooth | Marketing Agency Dublin`,
+  title: `Marketing Agency Maynooth`,
   description: `Professional marketing agency serving Maynooth, Co. ${area.county}. SEO, web design, Google Ads & social media marketing. Free consultation. Call +353 83 122 7553.`,
   alternates: { canonical: `https://marketing-agency-dublin-dublin.vercel.app/areas/maynooth` },
   openGraph: {
-    title: `Marketing Agency & Web Design Maynooth | Marketing Agency Dublin`,
+    title: `Marketing Agency Maynooth`,
     description: `Professional marketing agency serving Maynooth. SEO, web design, Google Ads & social media marketing.`,
     url: `https://marketing-agency-dublin-dublin.vercel.app/areas/maynooth`,
     siteName: "Marketing Agency Dublin",

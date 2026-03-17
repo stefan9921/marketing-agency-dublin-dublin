@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Marketing Agency Dublin",
+  title: "Terms of Service",
   description: "Terms of Service for Marketing Agency Dublin. Read our terms and conditions for using our website and marketing services.",
   alternates: { canonical: "https://marketing-agency-dublin-dublin.vercel.app/terms" },
 };

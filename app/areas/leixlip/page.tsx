@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 const area = getArea("leixlip");
 
 export const metadata: Metadata = area ? {
-  title: `Marketing Agency & Web Design Leixlip | Marketing Agency Dublin`,
+  title: `Marketing Agency Leixlip`,
   description: `Professional marketing agency serving Leixlip, Co. ${area.county}. SEO, web design, Google Ads & social media marketing. Free consultation. Call +353 83 122 7553.`,
   alternates: { canonical: `https://marketing-agency-dublin-dublin.vercel.app/areas/leixlip` },
   openGraph: {
-    title: `Marketing Agency & Web Design Leixlip | Marketing Agency Dublin`,
+    title: `Marketing Agency Leixlip`,
     description: `Professional marketing agency serving Leixlip. SEO, web design, Google Ads & social media marketing.`,
     url: `https://marketing-agency-dublin-dublin.vercel.app/areas/leixlip`,
     siteName: "Marketing Agency Dublin",

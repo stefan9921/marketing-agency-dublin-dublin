@@ -6,11 +6,11 @@ import { notFound } from "next/navigation";
 const area = getArea("drogheda");
 
 export const metadata: Metadata = area ? {
-  title: `Marketing Agency & Web Design Drogheda | Marketing Agency Dublin`,
+  title: `Marketing Agency Drogheda`,
   description: `Professional marketing agency serving Drogheda, Co. ${area.county}. SEO, web design, Google Ads & social media marketing. Free consultation. Call +353 83 122 7553.`,
   alternates: { canonical: `https://marketing-agency-dublin-dublin.vercel.app/areas/drogheda` },
   openGraph: {
-    title: `Marketing Agency & Web Design Drogheda | Marketing Agency Dublin`,
+    title: `Marketing Agency Drogheda`,
     description: `Professional marketing agency serving Drogheda. SEO, web design, Google Ads & social media marketing.`,
     url: `https://marketing-agency-dublin-dublin.vercel.app/areas/drogheda`,
     siteName: "Marketing Agency Dublin",

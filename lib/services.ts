@@ -16,7 +16,7 @@ export const services: ServiceData[] = [
   {
     slug: "search-engine-optimisation",
     title: "Search Engine Optimisation",
-    metaTitle: "SEO Agency Dublin | Search Engine Optimisation Services",
+    metaTitle: "SEO Services Dublin",
     metaDesc: "Leading SEO agency in Dublin. We boost your organic traffic with data-driven SEO strategies. Technical SEO, content optimisation & link building. Free audit.",
     heroTitle: "Search Engine Optimisation in Dublin",
     heroSubtitle: "Boost your organic traffic and maximise ROI with our data-driven SEO strategies tailored specifically for the competitive Dublin market.",
@@ -50,7 +50,7 @@ export const services: ServiceData[] = [
   {
     slug: "google-ads-ppc",
     title: "Google Ads & PPC",
-    metaTitle: "Google Ads & PPC Management Dublin | Marketing Agency Dublin",
+    metaTitle: "Google Ads & PPC Management Dublin",
     metaDesc: "Expert Google Ads and PPC management in Dublin. Maximise your ad spend with targeted campaigns that deliver qualified leads and measurable ROI.",
     heroTitle: "Google Ads & PPC Management in Dublin",
     heroSubtitle: "Drive immediate, targeted traffic to your business with expertly managed Google Ads campaigns that maximise every euro of your ad spend.",
@@ -84,7 +84,7 @@ export const services: ServiceData[] = [
   {
     slug: "social-media-marketing",
     title: "Social Media Marketing",
-    metaTitle: "Social Media Marketing Dublin | Marketing Agency Dublin",
+    metaTitle: "Social Media Marketing Dublin",
     metaDesc: "Professional social media marketing in Dublin. Build your brand, engage your audience & drive sales with strategic social media management across all platforms.",
     heroTitle: "Social Media Marketing in Dublin",
     heroSubtitle: "Build a powerful social media presence that engages your audience, builds brand loyalty, and drives measurable business results across all major platforms.",
@@ -118,7 +118,7 @@ export const services: ServiceData[] = [
   {
     slug: "local-seo",
     title: "Local SEO",
-    metaTitle: "Local SEO Dublin | Google Business Profile Optimisation",
+    metaTitle: "Local SEO Services Dublin",
     metaDesc: "Dominate local search results in Dublin with our expert local SEO services. Google Business Profile optimisation, local citations & map pack rankings.",
     heroTitle: "Local SEO Services in Dublin",
     heroSubtitle: "Get found by local customers when they need you most. Our local SEO strategies put your business at the top of Google Maps and local search results.",
@@ -152,7 +152,7 @@ export const services: ServiceData[] = [
   {
     slug: "web-design",
     title: "Web Design",
-    metaTitle: "Web Design Dublin | Website Design & Development Company",
+    metaTitle: "Web Design & Development Dublin",
     metaDesc: "Professional web design in Dublin. Beautiful, fast-loading websites that convert visitors into customers. Custom WordPress & Next.js development. Free quote.",
     heroTitle: "Web Design & Development in Dublin",
     heroSubtitle: "Beautiful, lightning-fast websites engineered to convert visitors into customers. We design and build digital experiences that drive real business growth.",
@@ -186,7 +186,7 @@ export const services: ServiceData[] = [
   {
     slug: "content-digital-strategy",
     title: "Content & Digital Strategy",
-    metaTitle: "Content & Digital Strategy Dublin | Marketing Agency Dublin",
+    metaTitle: "Content & Digital Strategy Dublin",
     metaDesc: "Strategic content marketing and digital strategy services in Dublin. Build authority, drive engagement & grow your business with data-driven content solutions.",
     heroTitle: "Content & Digital Strategy in Dublin",
     heroSubtitle: "Build authority and drive sustainable growth with strategic content marketing and comprehensive digital strategies tailored to your business goals.",
