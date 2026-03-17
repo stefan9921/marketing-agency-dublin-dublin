@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/services/search-engine-optimisation", label: "Services" },
-  { href: "/areas/naas", label: "Areas" },
+  { href: "/services", label: "Services" },
+  { href: "/areas", label: "Areas" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
