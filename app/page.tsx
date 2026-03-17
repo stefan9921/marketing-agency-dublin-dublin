@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import CTA from "@/components/CTA";
@@ -43,10 +44,8 @@ export default function Home() {
             </div>
           </div>
           <div className="relative hidden md:block">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border-8 border-white/10 aspect-video bg-primary/30">
-              <div className="w-full h-full flex items-center justify-center text-white/50">
-                <span className="material-symbols-outlined text-8xl">trending_up</span>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-8 border-white/10 aspect-video">
+              <Image src="/images/hero-dashboard.jpg" alt="Marketing analytics dashboard" width={800} height={450} className="w-full h-full object-cover" priority />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-yellow-soft p-6 rounded-xl shadow-xl text-primary font-bold">
               <div className="text-4xl">100%</div>
@@ -114,8 +113,8 @@ export default function Home() {
               <div className="flex items-start gap-3"><span className="material-symbols-outlined text-primary text-2xl mt-1">handshake</span><div><h4 className="font-bold">No Lock-In</h4><p className="text-sm text-slate-500">Month-to-month contracts</p></div></div>
             </div>
           </div>
-          <div className="bg-primary/10 rounded-2xl p-8 aspect-square flex items-center justify-center">
-            <span className="material-symbols-outlined text-primary text-[120px]">rocket_launch</span>
+          <div className="rounded-2xl overflow-hidden aspect-square">
+            <Image src="/images/team-working.jpg" alt="Our marketing team at work" width={600} height={600} className="w-full h-full object-cover" />
           </div>
         </div>
       </section>

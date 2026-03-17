@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { AreaData } from "@/lib/areas";
 import JsonLd from "./JsonLd";
 import CTA from "./CTA";
@@ -35,8 +36,8 @@ export default function AreaPage({ area }: { area: AreaData }) {
             </div>
           </div>
           <div className="hidden lg:block">
-            <div className="aspect-video w-full rounded-xl bg-white/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-white/30 text-[100px]">location_city</span>
+            <div className="aspect-video w-full rounded-xl overflow-hidden">
+              <Image src="/images/area-dublin.jpg" alt={`Marketing services in ${area.name}`} width={800} height={450} className="w-full h-full object-cover" priority />
             </div>
           </div>
         </div>
@@ -53,8 +54,8 @@ export default function AreaPage({ area }: { area: AreaData }) {
               <p>{area.localDesc}</p>
             </div>
           </div>
-          <div className="rounded-xl overflow-hidden shadow-xl border border-slate-100 bg-[#f5f5f5] aspect-square flex items-center justify-center">
-            <span className="material-symbols-outlined text-primary/20 text-[120px]">map</span>
+          <div className="rounded-xl overflow-hidden shadow-xl border border-slate-100 aspect-square">
+            <Image src="/images/area-dublin.jpg" alt={`${area.name} area`} width={600} height={600} className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
