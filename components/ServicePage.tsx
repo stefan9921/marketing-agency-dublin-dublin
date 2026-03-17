@@ -5,7 +5,7 @@ import JsonLd from "./JsonLd";
 import CTA from "./CTA";
 import ContactForm from "./ContactForm";
 
-const serviceImages: Record<string, string> = {
+const serviceHeroImages: Record<string, string> = {
   "search-engine-optimisation": "/images/service-seo.jpg",
   "google-ads-ppc": "/images/service-ppc.jpg",
   "social-media-marketing": "/images/service-social.jpg",
@@ -14,8 +14,18 @@ const serviceImages: Record<string, string> = {
   "content-digital-strategy": "/images/service-strategy.jpg",
 };
 
+const serviceIntroImages: Record<string, string> = {
+  "search-engine-optimisation": "/images/service-seo-2.jpg",
+  "google-ads-ppc": "/images/service-ppc-2.jpg",
+  "social-media-marketing": "/images/service-social-2.jpg",
+  "local-seo": "/images/service-local-seo-2.jpg",
+  "web-design": "/images/service-web-design-2.jpg",
+  "content-digital-strategy": "/images/service-strategy-2.jpg",
+};
+
 export default function ServicePage({ service }: { service: ServiceData }) {
-  const heroImg = serviceImages[service.slug] || "/images/service-seo.jpg";
+  const heroImg = serviceHeroImages[service.slug] || "/images/service-seo.jpg";
+  const introImg = serviceIntroImages[service.slug] || "/images/service-seo-2.jpg";
   return (
     <>
       <JsonLd />
@@ -51,7 +61,7 @@ export default function ServicePage({ service }: { service: ServiceData }) {
           </div>
           <div className="flex-1 order-1 lg:order-2">
             <div className="rounded-2xl overflow-hidden aspect-square">
-              <Image src={heroImg} alt={`${service.title} strategy`} width={600} height={600} className="w-full h-full object-cover" />
+              <Image src={introImg} alt={`${service.title} strategy`} width={600} height={600} className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

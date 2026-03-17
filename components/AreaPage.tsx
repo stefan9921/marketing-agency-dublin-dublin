@@ -14,7 +14,47 @@ const servicesList = [
   { icon: "lightbulb", title: "Content Strategy", desc: "Build authority and trust with strategic, engaging content marketing.", href: "/services/content-digital-strategy" },
 ];
 
+const areaHeroImages: Record<string, string> = {
+  naas: "/images/area-naas.jpg",
+  navan: "/images/area-navan.jpg",
+  mullingar: "/images/area-mullingar.jpg",
+  drogheda: "/images/area-drogheda.jpg",
+  tallaght: "/images/area-tallaght.jpg",
+  blackrock: "/images/area-blackrock.jpg",
+  greystones: "/images/area-greystones.jpg",
+  ashbourne: "/images/area-ashbourne.jpg",
+  swords: "/images/area-swords.jpg",
+  malahide: "/images/area-malahide.jpg",
+  lucan: "/images/area-lucan.jpg",
+  blanchardstown: "/images/area-blanchardstown.jpg",
+  bray: "/images/area-bray.jpg",
+  maynooth: "/images/area-maynooth.jpg",
+  leixlip: "/images/area-leixlip.jpg",
+  sandyford: "/images/area-sandyford.jpg",
+};
+
+const areaIntroImages: Record<string, string> = {
+  naas: "/images/area-intro-1.jpg",
+  navan: "/images/area-intro-2.jpg",
+  mullingar: "/images/area-intro-3.jpg",
+  drogheda: "/images/area-intro-4.jpg",
+  tallaght: "/images/area-intro-5.jpg",
+  blackrock: "/images/area-intro-6.jpg",
+  greystones: "/images/area-intro-7.jpg",
+  ashbourne: "/images/area-intro-8.jpg",
+  swords: "/images/area-intro-9.jpg",
+  malahide: "/images/area-intro-10.jpg",
+  lucan: "/images/area-intro-11.jpg",
+  blanchardstown: "/images/area-intro-12.jpg",
+  bray: "/images/area-intro-13.jpg",
+  maynooth: "/images/area-intro-14.jpg",
+  leixlip: "/images/area-intro-15.jpg",
+  sandyford: "/images/area-intro-16.jpg",
+};
+
 export default function AreaPage({ area }: { area: AreaData }) {
+  const heroImg = areaHeroImages[area.slug] || "/images/area-dublin.jpg";
+  const introImg = areaIntroImages[area.slug] || "/images/area-intro-1.jpg";
   return (
     <>
       <JsonLd />
@@ -37,7 +77,7 @@ export default function AreaPage({ area }: { area: AreaData }) {
           </div>
           <div className="hidden lg:block">
             <div className="aspect-video w-full rounded-xl overflow-hidden">
-              <Image src="/images/area-dublin.jpg" alt={`Marketing services in ${area.name}`} width={800} height={450} className="w-full h-full object-cover" priority />
+              <Image src={heroImg} alt={`Marketing services in ${area.name}`} width={800} height={450} className="w-full h-full object-cover" priority />
             </div>
           </div>
         </div>
@@ -55,7 +95,7 @@ export default function AreaPage({ area }: { area: AreaData }) {
             </div>
           </div>
           <div className="rounded-xl overflow-hidden shadow-xl border border-slate-100 aspect-square">
-            <Image src="/images/area-dublin.jpg" alt={`${area.name} area`} width={600} height={600} className="w-full h-full object-cover" />
+            <Image src={introImg} alt={`${area.name} area`} width={600} height={600} className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
