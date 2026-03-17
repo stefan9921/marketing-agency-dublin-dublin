@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ServiceData } from "@/lib/services";
 import JsonLd from "./JsonLd";
 import CTA from "./CTA";
@@ -6,6 +7,23 @@ import ContactForm from "./ContactForm";
 import Breadcrumbs from "./Breadcrumbs";
 
 const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
+
+const serviceHeroImages: Record<string, string> = {
+  "search-engine-optimisation": "/images/service-seo.jpg",
+  "google-ads-ppc": "/images/service-ppc.jpg",
+  "social-media-marketing": "/images/service-social.jpg",
+  "local-seo": "/images/service-local-seo.jpg",
+  "web-design": "/images/service-web-design.jpg",
+  "content-digital-strategy": "/images/service-strategy.jpg",
+};
+const serviceIntroImages: Record<string, string> = {
+  "search-engine-optimisation": "/images/service-seo-2.jpg",
+  "google-ads-ppc": "/images/service-ppc-2.jpg",
+  "social-media-marketing": "/images/service-social-2.jpg",
+  "local-seo": "/images/service-local-seo-2.jpg",
+  "web-design": "/images/service-web-design-2.jpg",
+  "content-digital-strategy": "/images/service-strategy-2.jpg",
+};
 
 const relatedAreas = ["Naas", "Navan", "Tallaght", "Swords", "Blackrock", "Sandyford", "Bray", "Blanchardstown"];
 
@@ -19,6 +37,8 @@ const allServices = [
 ];
 
 export default function ServicePage({ service }: { service: ServiceData }) {
+  const heroImg = serviceHeroImages[service.slug] || "/images/service-seo.jpg";
+  const introImg = serviceIntroImages[service.slug] || "/images/service-seo-2.jpg";
   const otherServices = allServices.filter((s) => s.slug !== service.slug);
   const breadcrumbItems = [
     { name: "Services", href: "/#services" },
@@ -53,8 +73,8 @@ export default function ServicePage({ service }: { service: ServiceData }) {
             </div>
           </div>
           <div className="flex-1 w-full hidden lg:flex items-center justify-center">
-            <div className="aspect-video w-full bg-white/10 rounded-xl flex items-center justify-center">
-              <span className="material-symbols-outlined text-white/40 text-[100px]">{service.icon}</span>
+            <div className="aspect-video w-full rounded-xl overflow-hidden">
+              <Image src={heroImg} alt={service.heroTitle} width={800} height={450} className="w-full h-full object-cover" priority />
             </div>
           </div>
         </div>
@@ -70,8 +90,8 @@ export default function ServicePage({ service }: { service: ServiceData }) {
             </div>
           </div>
           <div className="flex-1 order-1 lg:order-2">
-            <div className="bg-[#f5f5f5] rounded-2xl p-8 aspect-square flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary text-[100px]">{service.icon}</span>
+            <div className="rounded-2xl overflow-hidden aspect-square">
+              <Image src={introImg} alt={`${service.title} strategy`} width={600} height={600} className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

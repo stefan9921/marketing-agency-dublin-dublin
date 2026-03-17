@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { AreaData } from "@/lib/areas";
 import JsonLd from "./JsonLd";
 import CTA from "./CTA";
@@ -6,6 +7,21 @@ import ContactForm from "./ContactForm";
 import Breadcrumbs from "./Breadcrumbs";
 
 const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
+
+const areaHeroImages: Record<string, string> = {
+  naas: "/images/area-naas.jpg", navan: "/images/area-navan.jpg", mullingar: "/images/area-mullingar.jpg",
+  drogheda: "/images/area-drogheda.jpg", tallaght: "/images/area-tallaght.jpg", blackrock: "/images/area-blackrock.jpg",
+  greystones: "/images/area-greystones.jpg", ashbourne: "/images/area-ashbourne.jpg", swords: "/images/area-swords.jpg",
+  malahide: "/images/area-malahide.jpg", lucan: "/images/area-lucan.jpg", blanchardstown: "/images/area-blanchardstown.jpg",
+  bray: "/images/area-bray.jpg", maynooth: "/images/area-maynooth.jpg", leixlip: "/images/area-leixlip.jpg", sandyford: "/images/area-sandyford.jpg",
+};
+const areaIntroImages: Record<string, string> = {
+  naas: "/images/area-intro-1.jpg", navan: "/images/area-intro-2.jpg", mullingar: "/images/area-intro-3.jpg",
+  drogheda: "/images/area-intro-4.jpg", tallaght: "/images/area-intro-5.jpg", blackrock: "/images/area-intro-6.jpg",
+  greystones: "/images/area-intro-7.jpg", ashbourne: "/images/area-intro-8.jpg", swords: "/images/area-intro-9.jpg",
+  malahide: "/images/area-intro-10.jpg", lucan: "/images/area-intro-11.jpg", blanchardstown: "/images/area-intro-12.jpg",
+  bray: "/images/area-intro-13.jpg", maynooth: "/images/area-intro-14.jpg", leixlip: "/images/area-intro-15.jpg", sandyford: "/images/area-intro-16.jpg",
+};
 
 const servicesList = [
   { icon: "search", title: "SEO Strategy", desc: "Dominate search results and drive organic traffic to your local business.", href: "/services/search-engine-optimisation" },
@@ -36,6 +52,8 @@ const nearbyAreas: Record<string, string[]> = {
 };
 
 export default function AreaPage({ area }: { area: AreaData }) {
+  const heroImg = areaHeroImages[area.slug] || "/images/area-dublin.jpg";
+  const introImg = areaIntroImages[area.slug] || "/images/area-intro-1.jpg";
   const nearby = nearbyAreas[area.slug] || ["Naas", "Swords", "Tallaght", "Blackrock"];
   const breadcrumbItems = [
     { name: "Areas", href: "/#areas" },
@@ -70,8 +88,8 @@ export default function AreaPage({ area }: { area: AreaData }) {
             </div>
           </div>
           <div className="hidden lg:block">
-            <div className="aspect-video w-full rounded-xl bg-white/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-white/30 text-[100px]">location_city</span>
+            <div className="aspect-video w-full rounded-xl overflow-hidden">
+              <Image src={heroImg} alt={`Marketing services in ${area.name}`} width={800} height={450} className="w-full h-full object-cover" priority />
             </div>
           </div>
         </div>
@@ -89,8 +107,8 @@ export default function AreaPage({ area }: { area: AreaData }) {
               <p>As a full-service <Link href="/" className="text-primary font-semibold hover:underline">marketing agency based in Dublin</Link>, we offer everything from <Link href="/services/search-engine-optimisation" className="text-primary font-semibold hover:underline">search engine optimisation</Link> and <Link href="/services/web-design" className="text-primary font-semibold hover:underline">web design</Link> to <Link href="/services/google-ads-ppc" className="text-primary font-semibold hover:underline">Google Ads management</Link> and <Link href="/services/local-seo" className="text-primary font-semibold hover:underline">local SEO</Link> for businesses in {area.name} and across Co. {area.county}.</p>
             </div>
           </div>
-          <div className="rounded-xl overflow-hidden shadow-xl border border-slate-100 bg-[#f5f5f5] aspect-square flex items-center justify-center">
-            <span className="material-symbols-outlined text-primary/20 text-[120px]">map</span>
+          <div className="rounded-xl overflow-hidden shadow-xl border border-slate-100 aspect-square">
+            <Image src={introImg} alt={`${area.name} area`} width={600} height={600} className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
