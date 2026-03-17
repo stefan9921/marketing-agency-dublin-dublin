@@ -1,34 +1,44 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { ServiceData } from "@/lib/services";
 import JsonLd from "./JsonLd";
 import CTA from "./CTA";
 import ContactForm from "./ContactForm";
+import Breadcrumbs from "./Breadcrumbs";
 
-const serviceHeroImages: Record<string, string> = {
-  "search-engine-optimisation": "/images/service-seo.jpg",
-  "google-ads-ppc": "/images/service-ppc.jpg",
-  "social-media-marketing": "/images/service-social.jpg",
-  "local-seo": "/images/service-local-seo.jpg",
-  "web-design": "/images/service-web-design.jpg",
-  "content-digital-strategy": "/images/service-strategy.jpg",
-};
+const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
 
-const serviceIntroImages: Record<string, string> = {
-  "search-engine-optimisation": "/images/service-seo-2.jpg",
-  "google-ads-ppc": "/images/service-ppc-2.jpg",
-  "social-media-marketing": "/images/service-social-2.jpg",
-  "local-seo": "/images/service-local-seo-2.jpg",
-  "web-design": "/images/service-web-design-2.jpg",
-  "content-digital-strategy": "/images/service-strategy-2.jpg",
-};
+const relatedAreas = ["Naas", "Navan", "Tallaght", "Swords", "Blackrock", "Sandyford", "Bray", "Blanchardstown"];
+
+const allServices = [
+  { slug: "search-engine-optimisation", title: "SEO" },
+  { slug: "google-ads-ppc", title: "Google Ads & PPC" },
+  { slug: "social-media-marketing", title: "Social Media" },
+  { slug: "local-seo", title: "Local SEO" },
+  { slug: "web-design", title: "Web Design" },
+  { slug: "content-digital-strategy", title: "Content & Digital Strategy" },
+];
 
 export default function ServicePage({ service }: { service: ServiceData }) {
-  const heroImg = serviceHeroImages[service.slug] || "/images/service-seo.jpg";
-  const introImg = serviceIntroImages[service.slug] || "/images/service-seo-2.jpg";
+  const otherServices = allServices.filter((s) => s.slug !== service.slug);
+  const breadcrumbItems = [
+    { name: "Services", href: "/#services" },
+    { name: service.title },
+  ];
+  const breadcrumbSchema = [
+    { name: "Home", url: BASE },
+    { name: "Services", url: `${BASE}/#services` },
+    { name: service.title, url: `${BASE}/services/${service.slug}` },
+  ];
+
   return (
     <>
-      <JsonLd />
+      <JsonLd
+        breadcrumbs={breadcrumbSchema}
+        service={{ name: service.title, description: service.metaDesc, url: `${BASE}/services/${service.slug}` }}
+        faq={service.faq}
+      />
+      <Breadcrumbs items={breadcrumbItems} />
+
       {/* Hero */}
       <section className="bg-primary py-20 lg:py-32 px-6 lg:px-20 text-white">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
@@ -43,8 +53,8 @@ export default function ServicePage({ service }: { service: ServiceData }) {
             </div>
           </div>
           <div className="flex-1 w-full hidden lg:flex items-center justify-center">
-            <div className="aspect-video w-full rounded-xl overflow-hidden">
-              <Image src={heroImg} alt={service.heroTitle} width={800} height={450} className="w-full h-full object-cover" priority />
+            <div className="aspect-video w-full bg-white/10 rounded-xl flex items-center justify-center">
+              <span className="material-symbols-outlined text-white/40 text-[100px]">{service.icon}</span>
             </div>
           </div>
         </div>
@@ -60,8 +70,8 @@ export default function ServicePage({ service }: { service: ServiceData }) {
             </div>
           </div>
           <div className="flex-1 order-1 lg:order-2">
-            <div className="rounded-2xl overflow-hidden aspect-square">
-              <Image src={introImg} alt={`${service.title} strategy`} width={600} height={600} className="w-full h-full object-cover" />
+            <div className="bg-[#f5f5f5] rounded-2xl p-8 aspect-square flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary text-[100px]">{service.icon}</span>
             </div>
           </div>
         </div>
@@ -71,8 +81,8 @@ export default function ServicePage({ service }: { service: ServiceData }) {
       <section className="bg-[#f5f5f5] py-20 px-6 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Why Choose Us</h2>
-            <p className="text-slate-600">The leading choice for businesses looking to grow through {service.title.toLowerCase()}.</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Why Choose Our {service.title} Service</h2>
+            <p className="text-slate-600">The leading choice for Dublin businesses looking to grow through {service.title.toLowerCase()}.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {service.benefits.map((b, i) => (
@@ -88,7 +98,7 @@ export default function ServicePage({ service }: { service: ServiceData }) {
       {/* Process */}
       <section className="bg-white py-20 px-6 lg:px-20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-900 mb-16">Our 4-Step Process</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-900 mb-16">Our 4-Step {service.title} Process</h2>
           <div className="space-y-12">
             {service.process.map((s, i) => (
               <div key={i} className="flex gap-8 items-start">
@@ -115,8 +125,32 @@ export default function ServicePage({ service }: { service: ServiceData }) {
         </div>
       </section>
 
+      {/* Related Services (Internal Linking) */}
+      <section className="bg-white py-20 px-6 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">Explore Our Other Services</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {otherServices.map((s) => (
+              <Link key={s.slug} href={`/services/${s.slug}`} className="bg-[#f5f5f5] hover:bg-primary hover:text-white p-4 rounded-lg text-center font-semibold transition-colors text-sm">
+                {s.title}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-12">
+            <h3 className="text-xl font-bold text-center text-slate-900 mb-6">Areas We Serve</h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {relatedAreas.map((a) => (
+                <Link key={a} href={`/areas/${a.toLowerCase()}`} className="text-primary hover:text-amber-accent font-medium text-sm transition-colors">
+                  {service.title} in {a} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form */}
-      <section className="py-20 px-6 lg:px-20 bg-white">
+      <section className="py-20 px-6 lg:px-20 bg-[#f5f5f5]">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Get a Free {service.title} Consultation</h2>
           <ContactForm />

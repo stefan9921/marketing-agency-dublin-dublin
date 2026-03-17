@@ -1,17 +1,30 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ContactForm from "@/components/ContactForm";
+
+const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
 
 export const metadata: Metadata = {
   title: "Contact Marketing Agency Dublin | Get a Free Quote",
   description: "Contact Marketing Agency Dublin for a free, no-obligation consultation. Call +353 83 122 7553 or fill in our form. Based at Burnell Court, 146 Malahide Rd, Dublin 17.",
-  alternates: { canonical: "https://marketing-agency-dublin-dublin.vercel.app/contact" },
+  alternates: { canonical: `${BASE}/contact` },
+  openGraph: {
+    title: "Contact Marketing Agency Dublin | Get a Free Quote",
+    description: "Contact Marketing Agency Dublin for a free consultation. Call +353 83 122 7553.",
+    url: `${BASE}/contact`,
+    siteName: "Marketing Agency Dublin",
+    locale: "en_IE",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
-      <JsonLd />
+      <JsonLd breadcrumbs={[{ name: "Home", url: BASE }, { name: "Contact", url: `${BASE}/contact` }]} />
+      <Breadcrumbs items={[{ name: "Contact" }]} />
+
       <section className="bg-primary py-20 lg:py-28 px-6 text-white">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-4xl lg:text-6xl font-black">Contact Us</h1>

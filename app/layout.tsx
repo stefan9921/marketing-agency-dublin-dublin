@@ -4,8 +4,27 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Marketing Agency Dublin | SEO, Web Design & Digital Marketing",
+  title: {
+    default: "Marketing Agency Dublin | SEO, Web Design & Digital Marketing",
+    template: "%s | Marketing Agency Dublin",
+  },
   description: "Marketing Agency Dublin offers expert SEO, web design, PPC, social media marketing & local SEO services. Call +353 83 122 7553 for a free consultation.",
+  metadataBase: new URL("https://marketing-agency-dublin-dublin.vercel.app"),
+  openGraph: {
+    title: "Marketing Agency Dublin | SEO, Web Design & Digital Marketing",
+    description: "Dublin's top-rated marketing agency. Expert SEO, Google Ads, web design, social media & local SEO services. 150+ clients served.",
+    url: "https://marketing-agency-dublin-dublin.vercel.app",
+    siteName: "Marketing Agency Dublin",
+    locale: "en_IE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marketing Agency Dublin",
+    description: "Dublin's top-rated marketing agency. Expert SEO, Google Ads, web design, social media & local SEO services.",
+  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://marketing-agency-dublin-dublin.vercel.app" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

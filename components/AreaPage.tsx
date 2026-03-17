@@ -1,9 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { AreaData } from "@/lib/areas";
 import JsonLd from "./JsonLd";
 import CTA from "./CTA";
 import ContactForm from "./ContactForm";
+import Breadcrumbs from "./Breadcrumbs";
+
+const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
 
 const servicesList = [
   { icon: "search", title: "SEO Strategy", desc: "Dominate search results and drive organic traffic to your local business.", href: "/services/search-engine-optimisation" },
@@ -14,50 +16,42 @@ const servicesList = [
   { icon: "lightbulb", title: "Content Strategy", desc: "Build authority and trust with strategic, engaging content marketing.", href: "/services/content-digital-strategy" },
 ];
 
-const areaHeroImages: Record<string, string> = {
-  naas: "/images/area-naas.jpg",
-  navan: "/images/area-navan.jpg",
-  mullingar: "/images/area-mullingar.jpg",
-  drogheda: "/images/area-drogheda.jpg",
-  tallaght: "/images/area-tallaght.jpg",
-  blackrock: "/images/area-blackrock.jpg",
-  greystones: "/images/area-greystones.jpg",
-  ashbourne: "/images/area-ashbourne.jpg",
-  swords: "/images/area-swords.jpg",
-  malahide: "/images/area-malahide.jpg",
-  lucan: "/images/area-lucan.jpg",
-  blanchardstown: "/images/area-blanchardstown.jpg",
-  bray: "/images/area-bray.jpg",
-  maynooth: "/images/area-maynooth.jpg",
-  leixlip: "/images/area-leixlip.jpg",
-  sandyford: "/images/area-sandyford.jpg",
-};
-
-const areaIntroImages: Record<string, string> = {
-  naas: "/images/area-intro-1.jpg",
-  navan: "/images/area-intro-2.jpg",
-  mullingar: "/images/area-intro-3.jpg",
-  drogheda: "/images/area-intro-4.jpg",
-  tallaght: "/images/area-intro-5.jpg",
-  blackrock: "/images/area-intro-6.jpg",
-  greystones: "/images/area-intro-7.jpg",
-  ashbourne: "/images/area-intro-8.jpg",
-  swords: "/images/area-intro-9.jpg",
-  malahide: "/images/area-intro-10.jpg",
-  lucan: "/images/area-intro-11.jpg",
-  blanchardstown: "/images/area-intro-12.jpg",
-  bray: "/images/area-intro-13.jpg",
-  maynooth: "/images/area-intro-14.jpg",
-  leixlip: "/images/area-intro-15.jpg",
-  sandyford: "/images/area-intro-16.jpg",
+const nearbyAreas: Record<string, string[]> = {
+  naas: ["Maynooth", "Leixlip", "Mullingar", "Bray"],
+  navan: ["Drogheda", "Ashbourne", "Mullingar", "Swords"],
+  mullingar: ["Naas", "Navan", "Maynooth", "Ashbourne"],
+  drogheda: ["Navan", "Swords", "Ashbourne", "Malahide"],
+  tallaght: ["Sandyford", "Blackrock", "Lucan", "Bray"],
+  blackrock: ["Sandyford", "Tallaght", "Greystones", "Bray"],
+  greystones: ["Bray", "Blackrock", "Sandyford", "Tallaght"],
+  ashbourne: ["Swords", "Navan", "Malahide", "Blanchardstown"],
+  swords: ["Malahide", "Blanchardstown", "Ashbourne", "Drogheda"],
+  malahide: ["Swords", "Ashbourne", "Blanchardstown", "Drogheda"],
+  lucan: ["Blanchardstown", "Leixlip", "Maynooth", "Tallaght"],
+  blanchardstown: ["Lucan", "Swords", "Malahide", "Ashbourne"],
+  bray: ["Greystones", "Blackrock", "Sandyford", "Tallaght"],
+  maynooth: ["Leixlip", "Lucan", "Naas", "Blanchardstown"],
+  leixlip: ["Maynooth", "Lucan", "Blanchardstown", "Naas"],
+  sandyford: ["Blackrock", "Tallaght", "Greystones", "Bray"],
 };
 
 export default function AreaPage({ area }: { area: AreaData }) {
-  const heroImg = areaHeroImages[area.slug] || "/images/area-dublin.jpg";
-  const introImg = areaIntroImages[area.slug] || "/images/area-intro-1.jpg";
+  const nearby = nearbyAreas[area.slug] || ["Naas", "Swords", "Tallaght", "Blackrock"];
+  const breadcrumbItems = [
+    { name: "Areas", href: "/#areas" },
+    { name: area.name },
+  ];
+  const breadcrumbSchema = [
+    { name: "Home", url: BASE },
+    { name: "Areas", url: `${BASE}/#areas` },
+    { name: area.name, url: `${BASE}/areas/${area.slug}` },
+  ];
+
   return (
     <>
-      <JsonLd />
+      <JsonLd breadcrumbs={breadcrumbSchema} />
+      <Breadcrumbs items={breadcrumbItems} />
+
       {/* Hero */}
       <section className="bg-primary py-20 lg:py-32 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -76,8 +70,8 @@ export default function AreaPage({ area }: { area: AreaData }) {
             </div>
           </div>
           <div className="hidden lg:block">
-            <div className="aspect-video w-full rounded-xl overflow-hidden">
-              <Image src={heroImg} alt={`Marketing services in ${area.name}`} width={800} height={450} className="w-full h-full object-cover" priority />
+            <div className="aspect-video w-full rounded-xl bg-white/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-white/30 text-[100px]">location_city</span>
             </div>
           </div>
         </div>
@@ -92,10 +86,11 @@ export default function AreaPage({ area }: { area: AreaData }) {
               <p className="font-semibold text-slate-900">Dublin-quality marketing for {area.name} businesses.</p>
               <p>{area.intro}</p>
               <p>{area.localDesc}</p>
+              <p>As a full-service <Link href="/" className="text-primary font-semibold hover:underline">marketing agency based in Dublin</Link>, we offer everything from <Link href="/services/search-engine-optimisation" className="text-primary font-semibold hover:underline">search engine optimisation</Link> and <Link href="/services/web-design" className="text-primary font-semibold hover:underline">web design</Link> to <Link href="/services/google-ads-ppc" className="text-primary font-semibold hover:underline">Google Ads management</Link> and <Link href="/services/local-seo" className="text-primary font-semibold hover:underline">local SEO</Link> for businesses in {area.name} and across Co. {area.county}.</p>
             </div>
           </div>
-          <div className="rounded-xl overflow-hidden shadow-xl border border-slate-100 aspect-square">
-            <Image src={introImg} alt={`${area.name} area`} width={600} height={600} className="w-full h-full object-cover" />
+          <div className="rounded-xl overflow-hidden shadow-xl border border-slate-100 bg-[#f5f5f5] aspect-square flex items-center justify-center">
+            <span className="material-symbols-outlined text-primary/20 text-[120px]">map</span>
           </div>
         </div>
       </section>
@@ -111,7 +106,7 @@ export default function AreaPage({ area }: { area: AreaData }) {
             {servicesList.map((s, i) => (
               <Link key={i} href={s.href} className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-slate-100 block">
                 <span className="material-symbols-outlined text-primary text-4xl mb-6 block">{s.icon}</span>
-                <h3 className="text-xl font-bold mb-3">{s.title}</h3>
+                <h3 className="text-xl font-bold mb-3">{s.title} in {area.name}</h3>
                 <p className="text-slate-600 mb-6">{s.desc}</p>
                 <span className="text-amber-accent font-bold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                   Learn More <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -146,8 +141,22 @@ export default function AreaPage({ area }: { area: AreaData }) {
         </div>
       </section>
 
+      {/* Nearby Areas (Internal Linking) */}
+      <section className="bg-[#f5f5f5] py-16 px-6 lg:px-20">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-slate-900 mb-8">We Also Serve Nearby Areas</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {nearby.map((n) => (
+              <Link key={n} href={`/areas/${n.toLowerCase()}`} className="bg-white hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors border border-slate-100">
+                {n}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form */}
-      <section className="py-20 px-6 lg:px-20 bg-[#f5f5f5]">
+      <section className="py-20 px-6 lg:px-20 bg-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">Get a Free Consultation for Your {area.name} Business</h2>
           <p className="text-slate-600 text-center mb-8">Tell us about your business and we&apos;ll create a custom marketing plan for your {area.name} location.</p>

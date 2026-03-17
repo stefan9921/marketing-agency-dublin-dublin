@@ -1,17 +1,31 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
+
+const BASE = "https://marketing-agency-dublin-dublin.vercel.app";
 
 export const metadata: Metadata = {
   title: "About Marketing Agency Dublin | Our Story & Team",
   description: "Learn about Marketing Agency Dublin — a results-driven digital marketing agency based in Dublin 17. Meet our team and discover our approach to growing Irish businesses.",
-  alternates: { canonical: "https://marketing-agency-dublin-dublin.vercel.app/about" },
+  alternates: { canonical: `${BASE}/about` },
+  openGraph: {
+    title: "About Marketing Agency Dublin | Our Story & Team",
+    description: "Learn about Marketing Agency Dublin — a results-driven digital marketing agency based in Dublin 17.",
+    url: `${BASE}/about`,
+    siteName: "Marketing Agency Dublin",
+    locale: "en_IE",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
   return (
     <>
-      <JsonLd />
+      <JsonLd breadcrumbs={[{ name: "Home", url: BASE }, { name: "About", url: `${BASE}/about` }]} />
+      <Breadcrumbs items={[{ name: "About" }]} />
+
       <section className="bg-primary py-20 lg:py-28 px-6 text-white">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-4xl lg:text-6xl font-black">About Marketing Agency Dublin</h1>
@@ -22,11 +36,14 @@ export default function AboutPage() {
       <section className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto space-y-8 text-lg text-slate-600 leading-relaxed">
           <h2 className="text-3xl font-bold text-slate-900">Our Story</h2>
-          <p>Marketing Agency Dublin was founded with a simple mission: to provide Irish businesses with world-class digital marketing services at a fair price. Based in Dublin 17, we&apos;ve grown from a small team of marketing enthusiasts into a full-service agency serving over 150 clients across Ireland.</p>
-          <p>We believe that every business deserves access to the same quality of marketing expertise that large corporations enjoy. That&apos;s why we&apos;ve built a team of specialists across SEO, PPC, web design, social media, and content strategy — all working together to deliver integrated campaigns that drive real results.</p>
+          <p>Marketing Agency Dublin was founded with a simple mission: to provide Irish businesses with world-class digital marketing services at a fair price. Based at Burnell Court on Malahide Road in Dublin 17, we&apos;ve grown from a small team of marketing enthusiasts into a full-service agency serving over 150 clients across Ireland.</p>
+          <p>We believe that every business deserves access to the same quality of marketing expertise that large corporations enjoy. That&apos;s why we&apos;ve built a team of specialists across <Link href="/services/search-engine-optimisation" className="text-primary font-semibold hover:underline">SEO</Link>, <Link href="/services/google-ads-ppc" className="text-primary font-semibold hover:underline">PPC</Link>, <Link href="/services/web-design" className="text-primary font-semibold hover:underline">web design</Link>, <Link href="/services/social-media-marketing" className="text-primary font-semibold hover:underline">social media</Link>, and <Link href="/services/content-digital-strategy" className="text-primary font-semibold hover:underline">content strategy</Link> — all working together to deliver integrated campaigns that drive real results.</p>
+
           <h2 className="text-3xl font-bold text-slate-900 pt-8">Our Approach</h2>
           <p>We&apos;re not a one-size-fits-all agency. Every business is different, and every marketing strategy should be too. We start by understanding your unique goals, challenges, and market position, then develop a custom strategy designed to deliver measurable growth.</p>
           <p>Transparency is at the heart of everything we do. You&apos;ll always know exactly what we&apos;re working on, why we&apos;re doing it, and what results it&apos;s delivering. No jargon, no smoke and mirrors — just honest, effective marketing.</p>
+          <p>Whether you&apos;re a startup in <Link href="/areas/sandyford" className="text-primary font-semibold hover:underline">Sandyford Business District</Link>, a retailer in <Link href="/areas/swords" className="text-primary font-semibold hover:underline">Swords</Link>, or a professional services firm in <Link href="/areas/blackrock" className="text-primary font-semibold hover:underline">Blackrock</Link>, we tailor our approach to your specific market and audience.</p>
+
           <h2 className="text-3xl font-bold text-slate-900 pt-8">Our Values</h2>
           <div className="grid md:grid-cols-2 gap-6 pt-4">
             <div className="bg-[#f5f5f5] p-6 rounded-lg"><h3 className="font-bold text-slate-900 mb-2">Results First</h3><p className="text-base">Every action we take is tied to a measurable business outcome. We&apos;re obsessed with delivering ROI.</p></div>
