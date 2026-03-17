@@ -5,3 +5,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+// built Tue Mar 17 11:36:06 GMT 2026
