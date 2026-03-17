@@ -97,8 +97,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Reviews Section */}
       <section className="py-24 bg-[#f5f5f5] px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black text-slate-900 mb-4">What Our Clients Say</h2>
+            <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { name: "Sarah Mitchell", role: "Owner, Dublin Café Co.", text: "Our online enquiries tripled within three months. The SEO strategy they built for us was spot on — we're now ranking for keywords we never thought possible." },
+              { name: "Mark Thompson", role: "Director, Thompson Construction", text: "We went from page 3 to position 1 for our main keywords. The team really understands the Dublin market and delivered results fast." },
+              { name: "Emma Kelly", role: "Founder, Bloom Boutique", text: "The website they designed for us is stunning and actually converts. Our online sales jumped 40% in the first month after launch." },
+              { name: "David O'Brien", role: "MD, O'Brien Plumbing Services", text: "Their local SEO work transformed our business. We get 5-10 calls a day now from Google alone. Best investment we've made." },
+              { name: "Lisa Brennan", role: "Partner, Brennan & Co Solicitors", text: "Professional, transparent, and genuinely invested in our success. The monthly reports are clear and we can see exactly where our money goes." },
+              { name: "James Nolan", role: "CEO, Nolan Fitness", text: "The Google Ads campaign they manage for us delivers a consistent 5x return. They optimise it every week and we see the results in real time." },
+            ].map((review, i) => (
+              <div key={i} className="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, j) => (
+                    <span key={j} className="material-symbols-outlined text-amber-400 text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                  ))}
+                </div>
+                <p className="text-slate-600 leading-relaxed mb-6">&ldquo;{review.text}&rdquo;</p>
+                <div>
+                  <div className="font-bold text-slate-900">{review.name}</div>
+                  <div className="text-sm text-slate-500">{review.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-24 bg-white px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl font-bold text-slate-900 mb-6">Why Choose Marketing Agency Dublin?</h2>
