@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #84994f;
+  --color-amber-accent: #FCB53B;
+  --color-yellow-soft: #FFE797;
+  --color-bg-light: #f7f7f6;
+  --color-bg-dark: #1a1c16;
+  --font-display: "Work Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-display);
+}
+
+.hero-wave {
+  clip-path: ellipse(120% 100% at 50% 0%);
+}
